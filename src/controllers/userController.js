@@ -45,7 +45,7 @@ async function loginUser(req, res) {
   const normalizedEmail = String(email || '').trim().toLowerCase();
 
   if (!isValidEmail(normalizedEmail) || typeof password !== 'string' || password.length === 0) {
-    return res.status(400).json({ error: 'A valid email and password are required.' });
+    return res.status(400).json({ error: 'Valid email and password are required.' });
   }
 
   try {
@@ -62,7 +62,7 @@ async function loginUser(req, res) {
       },
     });
   } catch (error) {
-    return res.status(500).json({ error: 'Unable to authenticate user.' });
+    return res.status(500).json({ error: 'Unable to authenticate user, Check Again!' });
   }
 }
 
