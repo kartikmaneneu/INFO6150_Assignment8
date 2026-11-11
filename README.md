@@ -19,9 +19,10 @@ This project implements a secure REST API for user management and image uploads 
 1. Install dependencies:
    npm install
 2. Copy `.env.example` or use the default `.env` file.
-3. Ensure MongoDB is running locally on `mongodb://127.0.0.1:27017/info6150_assignment8`.
+3. Set `MONGO_URI` in `.env` to your MongoDB connection string (local or Atlas). For Atlas, ensure your current IP is allowed in Network Access and the database user credentials are valid.
 4. Start the server:
    npm start
+   The API starts only after MongoDB connects successfully.
 5. Open Swagger docs at:
    http://localhost:5000/api-docs
 

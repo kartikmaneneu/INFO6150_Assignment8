@@ -6,11 +6,12 @@ const { connectDB } = require('./src/config/db');
 const PORT = process.env.PORT || 5000;
 
 connectDB()
-  .catch((error) => {
-    console.warn('Database initialization warning:', error.message);
-  })
-  .finally(() => {
+  .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });
+  })
+  .catch((error) => {
+    console.error('Failed to connect to MongoDB:', error.message);
+    process.exit(1);
   });

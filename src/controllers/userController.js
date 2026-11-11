@@ -143,6 +143,7 @@ async function getAllUsers(req, res) {
       })),
     });
   } catch (error) {
+    console.error('Failed to fetch users:', error.message);
     return res.status(500).json({ error: 'Unable to fetch users.' });
   }
 }
