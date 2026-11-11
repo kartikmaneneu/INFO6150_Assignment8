@@ -10,7 +10,7 @@ async function connectDB() {
     console.log('MongoDB connected successfully.');
     return true;
   } catch (error) {
-    console.warn('MongoDB is not currently available. Starting the API without a database connection.');
+    console.warn('MongoDB is not currently available!');
     return false;
   }
 }
