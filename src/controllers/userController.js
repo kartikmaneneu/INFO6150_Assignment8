@@ -169,7 +169,7 @@ async function uploadUserImage(req, res) {
 
     if (user.imagePath) {
       fs.unlink(req.file.path, () => {});
-      return res.status(400).json({ error: 'Image already exists for this user.' });
+      return res.status(400).json({ error: 'Image already exists for this user!' });
     }
 
     const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
