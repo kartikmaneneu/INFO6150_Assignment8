@@ -1,0 +1,148 @@
+{
+  "info": {
+    "name": "INFO6150 Assignment 8 API",
+    "description": "Sample requests for the secure Node.js user management API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"Password1!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/user/create",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "create"]
+        }
+      }
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"fullName\": \"John Smith\",\n  \"password\": \"NewPassword2@\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/user/edit",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "edit"]
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"Password1!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/user/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get All Users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/user/getAll",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "getAll"]
+        }
+      }
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john.doe@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/user/delete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "delete"]
+        }
+      }
+    },
+    {
+      "name": "Upload Image",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "john.doe@example.com",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/user/uploadImage",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["user", "uploadImage"]
+        }
+      }
+    }
+  ]
+}
