@@ -2,15 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
 
-const imagesDirectory = path.join(__dirname, '..', '..', 'images');
+const imagePath = path.join(__dirname, '..', '..', 'images');
 
-if (!fs.existsSync(imagesDirectory)) {
-  fs.mkdirSync(imagesDirectory, { recursive: true });
+if (!fs.existsSync(imagePath)) {
+  fs.mkdirSync(imagePath, { recursive: true });
 }
 
 const storage = multer.diskStorage({
   destination(req, file, callback) {
-    callback(null, imagesDirectory);
+    callback(null, imagePath);
   },
   filename(req, file, callback) {
     const email = String(req.body.email || 'user').trim();
