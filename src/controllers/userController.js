@@ -148,6 +148,25 @@ async function getAllUsers(req, res) {
   }
 }
 
+async function getUserImages(req, res) {
+  try {
+    const users = await User.find(
+      { imagePath: { $exists: true, $ne: '' } },
+      'fullName imagePath'
+    ).sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      images: users.map((user) => ({
+        name: user.fullName,
+        imagePath: user.imagePath,
+      })),
+    });
+  } catch (error) {
+    console.error('Failed to fetch user images:', error.message);
+    return res.status(500).json({ error: 'Unable to fetch user images.' });
+  }
+}
+
 async function uploadUserImage(req, res) {
   const email = String(req.body?.email || '').trim().toLowerCase();
 
@@ -202,5 +221,6 @@ module.exports = {
   updateUser,
   deleteUser,
   getAllUsers,
+  getUserImages,
   uploadUserImage,
 };

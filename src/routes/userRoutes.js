@@ -7,6 +7,7 @@ const {
   updateUser,
   deleteUser,
   getAllUsers,
+  getUserImages,
   uploadUserImage,
 } = require('../controllers/userController');
 
@@ -174,6 +175,19 @@ router.delete('/user/delete', deleteUser);
  *               $ref: '#/components/schemas/ErrorResponse'
  */
 router.get('/user/getAll', getAllUsers);
+
+/**
+ * @openapi
+ * /user/images:
+ *   get:
+ *     summary: Retrieve uploaded user images
+ *     description: Returns display names and image paths without exposing email addresses or password hashes.
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Uploaded user images
+ */
+router.get('/user/images', getUserImages);
 
 /**
  * @openapi

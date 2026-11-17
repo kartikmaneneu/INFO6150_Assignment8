@@ -1,11 +1,13 @@
 const express = require('express');
 const path = require('path');
 const multer = require('multer');
+const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const setupSwagger = require('./swagger');
 
 const app = express();
 
+app.use(cors({ origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/images', express.static(path.join(__dirname, '..', 'images')));

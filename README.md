@@ -6,6 +6,7 @@ This project implements a secure REST API for user management and image uploads 
 
 - Create user with validation
 - Authenticate users using email and password
+- List uploaded user images without exposing account credentials
 - Update user details while preventing email changes
 - Delete user by email
 - Fetch all users
@@ -33,6 +34,7 @@ This project implements a secure REST API for user management and image uploads 
 - PUT /user/edit
 - DELETE /user/delete
 - GET /user/getAll
+- GET /user/images
 - POST /user/uploadImage
 
 ## Postman
